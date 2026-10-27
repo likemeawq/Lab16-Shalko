@@ -29,32 +29,118 @@
 //     Console.WriteLine(point);
 // }
 
-int[] gradesToSort = { 4, 5, 3, 5, 4, 2 };
-for (int i = 0; i < gradesToSort.Length - 1; i++)
+// int[] gradesToSort = { 4, 5, 3, 5, 4, 2 };
+// for (int i = 0; i < gradesToSort.Length - 1; i++)
+// {
+// for (int j = 0; j < gradesToSort.Length - 1 - i; j++)
+// {
+// if (gradesToSort[j] < gradesToSort[j + 1])
+// {
+// int temp = gradesToSort[j];
+// gradesToSort[j] = gradesToSort[j + 1];
+// gradesToSort[j + 1] = temp;
+// }
+// }
+// }
+// foreach (int grade in gradesToSort)
+// {
+//     Console.WriteLine(grade);
+// }
+
+
+// int[] slots = GenerateScheduleSlots(6);
+// foreach (int slot in slots)
+// {
+// Console.WriteLine(slot);
+// }
+// int[] evenSlots = GenerateEvenSlots(6);
+// foreach (int slot in evenSlots)
+// {
+//     Console.WriteLine(slot);
+// }
+
+
+// int[] gradesArraySort = { 4, 5, 3, 5, 4, 2 };
+// Array.Sort(gradesArraySort);
+// foreach (int grade in gradesArraySort)
+// {
+// Console.WriteLine(grade);
+// }
+
+
+// Console.Write("Введите число N для задачи А: ");
+// int nTaskA = int.Parse(Console.ReadLine());
+// int[] arrayA = new int[nTaskA];
+// for (int i = 0; i < arrayA.Length; i++)
+// {
+// arrayA[i] = (i + 1) * (i + 1);
+// }
+// foreach (int val in arrayA)
+// {
+// Console.WriteLine(val);
+// }
+
+
+// int[] arrayB = { 5, -3, 0, -1, 8, -12, 4 };
+// for (int i = 0; i < arrayB.Length; i++)
+// {
+// if (arrayB[i] < 0)
+// {
+// arrayB[i] = 0;
+// }
+// }
+// foreach (int val in arrayB)
+// {
+// Console.WriteLine(val);
+// }
+
+// Console.Write("Введите свою фамилию: ");
+// string surname = Console.ReadLine()!.Trim();
+// if (string.IsNullOrEmpty(surname)) {
+// Console.WriteLine("Фамилия не введена. Завершение работы.");
+// return;
+// }
+// Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+// var assigned = Enumerable.Range(1, 10)
+// .OrderBy(_ => rnd.Next())
+// .Take(2)
+// .OrderBy(x => x)
+// .ToList();
+// Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+double[] temperatures = { 12.5, -3.4, 0.0, -1.2, 21.3 };
+for (int i = 0; i < temperatures.Length; i++)
 {
-for (int j = 0; j < gradesToSort.Length - 1 - i; j++)
+if (temperatures[i] < 0)
 {
-if (gradesToSort[j] < gradesToSort[j + 1])
-{
-int temp = gradesToSort[j];
-gradesToSort[j] = gradesToSort[j + 1];
-gradesToSort[j + 1] = temp;
+temperatures[i] = 0;
 }
 }
-}
-foreach (int grade in gradesToSort)
+foreach (double temp in temperatures)
 {
-    Console.WriteLine(grade);
+Console.WriteLine(temp);
 }
 
 
-int[] slots = GenerateScheduleSlots(6);
-foreach (int slot in slots)
+int[] arrayTask10 = { 12, 5, 12, 8, 3, 12, 10, 10 };
+Array.Sort(arrayTask10);
+int max = arrayTask10[arrayTask10.Length - 1];
+int secondMax = int.MinValue;
+bool found = false;
+for (int i = arrayTask10.Length - 2; i >= 0; i--)
 {
-Console.WriteLine(slot);
+if (arrayTask10[i] != max)
+{
+secondMax = arrayTask10[i];
+found = true;
+break;
 }
-int[] evenSlots = GenerateEvenSlots(6);
-foreach (int slot in evenSlots)
+}
+if (found)
 {
-    Console.WriteLine(slot);
+Console.WriteLine($"Второе по величине число: {secondMax}");
+}
+else
+{
+Console.WriteLine("Второго по величине числа нет (все элементы равны).");
 }
